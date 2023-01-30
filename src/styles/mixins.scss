@@ -50,3 +50,16 @@
   color: whitesmoke;
   border-radius: 10px;
 }
+
+@mixin FAbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 20px;
+  font-size: 1em;
+  font-weight: 500;
+  border: 1px solid transparent;
+  color: $offwhite;
+  border-radius: 10px;
+}

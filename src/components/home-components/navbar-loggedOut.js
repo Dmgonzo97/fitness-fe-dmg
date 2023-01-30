@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
 
-export default function NavBarLoggedOut() {
+function NavBarLoggedOut() {
   return (
     <div className="navbar">
 
@@ -33,3 +33,5 @@ export default function NavBarLoggedOut() {
     </div>
   )
 }
+
+export default NavBarLoggedOut;

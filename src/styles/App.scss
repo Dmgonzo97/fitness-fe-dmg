@@ -39,7 +39,14 @@
 			justify-content: flex-start;
 			align-items: center;
 
-			@include icon();
+			button {
+				background-color: $DarkRed;
+				border: 1px solid transparent;
+				border-radius: 5px;
+				a {
+					@include FAbtn();
+				}
+			}	
 		}
 	}
 }

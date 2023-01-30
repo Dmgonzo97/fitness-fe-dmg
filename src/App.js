@@ -16,10 +16,10 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route exact path='/' element={<Home />} />
-				<Route exact path='/login' element={<Login />} />
-				<Route exact path='/signup' element={<Signup />} />
-				<Route exact path='/userprofile' element={<UserProfile />} />
+				<Route exact path='/' element={<Home logInStat={logInStatus} setLogInStat={setLogInStatus} />} />
+				<Route exact path='/login' element={<Login setLogInStat={setLogInStatus}/>} />
+				<Route exact path='/signup' element={<Signup setLogInStat={setLogInStatus}/>} />
+				<Route exact path='/userprofile' element={<UserProfile setLogInStat={setLogInStatus}/>} />
 			</Routes>
 		</BrowserRouter>
 	);
