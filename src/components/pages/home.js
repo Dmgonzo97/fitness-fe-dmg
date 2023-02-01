@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router'
 import HomeContent from '../home-components/home-content'
 import NavbarLoggedIn from '../home-components/navbar-loggedIn'
 import NavBarLoggedOut from '../home-components/navbar-loggedOut'
-import { useSelector, useDispatch } from 'react-redux'
-import { setLogInStatus } from '../../slices/authSlice'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
 
@@ -16,7 +15,7 @@ const Home = () => {
 			<div className="container">
 				{
 					logInStatus ? (
-						<NavbarLoggedIn setLogIn={setLogInStatus}/>
+						<NavbarLoggedIn />
 					) : (
 						<NavBarLoggedOut />
 					)

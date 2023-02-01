@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  logInStatus: true
+  logInStatus: false
 }
 
 export const authSlice = createSlice({
@@ -20,3 +20,5 @@ export const authSlice = createSlice({
 export const { setLogInStatus } = authSlice.actions
 
 export default authSlice.reducer
+
+// google and research later Vanilla Redux and how to incorporate Redux with APIs at a later date

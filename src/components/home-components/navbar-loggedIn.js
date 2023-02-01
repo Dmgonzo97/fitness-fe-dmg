@@ -6,9 +6,13 @@ import Mfologo from '../images/MFO-Logo.png';
 import { useDispatch } from 'react-redux';
 import { setLogInStatus } from '../../slices/authSlice';
 
-export default function NavbarLoggedIn(setLogIn) {
+export default function NavbarLoggedIn() {
 
   const dispatch = useDispatch()
+
+  const LogOut = () => {
+    dispatch(setLogInStatus(false))
+  }
 
   return (
     <div className="navbar">
@@ -27,7 +31,7 @@ export default function NavbarLoggedIn(setLogIn) {
 
       <div className="right-nav">
         <div className="login-icon">
-          <button onClick={() => dispatch(setLogInStatus(false))}>
+          <button onClick={LogOut}>
             <a>
               <FontAwesomeIcon icon='fa-solid fa-user' />
             </a>

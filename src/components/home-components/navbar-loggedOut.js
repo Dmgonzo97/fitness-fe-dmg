@@ -1,8 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
+import { useDispatch } from 'react-redux';
+import { setLogInStatus } from '../../slices/authSlice';
 
 function NavBarLoggedOut() {
+  
+  const dispatch = useDispatch()
+
+  const LogIn = () => {
+    dispatch(setLogInStatus(true))
+  }
+
   return (
     <div className="navbar">
 
@@ -20,7 +29,7 @@ function NavBarLoggedOut() {
 
       <div className="right-nav">
         <div>
-          <button className='btn'>Login</button>
+          <button className='btn' onClick={LogIn}>Login</button>
         </div>
 
         <div className="login-icon">
