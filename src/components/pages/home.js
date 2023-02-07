@@ -4,21 +4,15 @@ import HomeContent from '../home-components/home-content'
 import NavbarLoggedIn from '../home-components/navbar-loggedIn'
 import NavBarLoggedOut from '../home-components/navbar-loggedOut'
 import { useSelector } from 'react-redux'
+import Navbar from '../home-components/navbar'
 
 const Home = () => {
-
-	const logInStatus = useSelector((state) => state.auth.logInStatus)
-	
 
 	return (
 		<>
 			<div className="container">
 				{
-					logInStatus ? (
-						<NavbarLoggedIn />
-					) : (
-						<NavBarLoggedOut />
-					)
+					<Navbar />
 				}
 
 				<HomeContent />
