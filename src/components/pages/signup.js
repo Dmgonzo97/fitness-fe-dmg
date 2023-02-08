@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import Navbar from '../home-components/navbar'
 
 
-const Signup = () => {
+export default function Signup() {
 
   let navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -65,7 +65,6 @@ const Signup = () => {
             <input
               type="text"
               placeholder='Username'
-              className='signupInput'
               value={username}
               name='username'
               onChange={e => setUsername(e.target.value)}
@@ -74,7 +73,6 @@ const Signup = () => {
             <input
               type="text"
               placeholder='Password'
-              className='signupInput'
               value={password}
               username='password'
               onChange={e => setPassword(e.target.value)}
@@ -83,7 +81,6 @@ const Signup = () => {
             <input
               type="text"
               placeholder='Confirm Password'
-              className='signupInput'
               value={ConfirmPassword}
               name='confirmPassword'
               onChange={e => setConfirmPassword(e.target.value)}
@@ -108,6 +105,4 @@ const Signup = () => {
       </div>
     </>
   )
-}
-
-export default Signup
+};

@@ -1,12 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
-import { useDispatch } from 'react-redux';
-import { setLogInStatus } from '../../slices/authSlice';
 import { useNavigate } from 'react-router';
 
 function NavBarLoggedOut() {
-  
+
   let navigate = useNavigate();
 
   let SignUpRoute = () => {
@@ -15,21 +13,15 @@ function NavBarLoggedOut() {
 
   let LoginRoute = () => {
     navigate('/login')
-  }
+  };
 
   let UserRoute = () => {
     navigate('/userprofile')
-  }
+  };
 
   let HomeRoute = () => {
     navigate('/')
-  }
-
-  const dispatch = useDispatch()
-
-  const LogIn = () => {
-    dispatch(setLogInStatus(true))
-  }
+  };
 
   return (
     <div className="navbar">
@@ -49,13 +41,11 @@ function NavBarLoggedOut() {
       <div className="right-nav">
         <div>
           <button className='btn' onClick={SignUpRoute}>Sign Up</button>
-          <button className='btn' onClick={LogIn}>Login</button>
+          <button className='btn' onClick={LoginRoute}>Login</button>
         </div>
 
         <div className="login-icon">
-          <a>
-            <FontAwesomeIcon icon='fa-solid fa-user' />
-          </a>
+          <FontAwesomeIcon  className='fa' icon='fa-solid fa-user' />
         </div>
       </div>
 

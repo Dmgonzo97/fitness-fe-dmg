@@ -1,7 +1,5 @@
 import React from 'react'
-import { useSelector ,useDispatch } from 'react-redux';
-import { setLogInStatus } from '../../slices/authSlice';
-import authSlice from '../../slices/authSlice';
+import { useSelector , } from 'react-redux';
 import NavbarLoggedIn from './navbar-loggedIn';
 import NavBarLoggedOut from './navbar-loggedOut';
 
