@@ -25,7 +25,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [APIurl,] = useState('http://127.0.0.1:5000/user/verify')
+  const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/verify')
 
 
   const handleSubmit = (e) => {
