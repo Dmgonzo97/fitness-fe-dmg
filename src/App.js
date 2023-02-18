@@ -6,20 +6,21 @@ import Home from './components/pages/home';
 import Login from './components/pages/login';
 import Signup from './components/pages/signup';
 import UserProfile from './components/pages/user-profile';
+import CreatePost from './components/pages/create-post';
 
 export default function App() {
-
-	const [logInStatus, setLogInStatus] = useState(false)
 
 	Icons();
 
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route exact path='/' element={<Home logInStat={logInStatus} setLogInStat={setLogInStatus} />} />
-				<Route exact path='/login' element={<Login setLogInStat={setLogInStatus}/>} />
-				<Route exact path='/signup' element={<Signup setLogInStat={setLogInStatus}/>} />
-				<Route exact path='/userprofile' element={<UserProfile setLogInStat={setLogInStatus}/>} />
+				<Route exact path='/' element={<Home />} /> 
+				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/signup' element={<Signup />} />
+				<Route exact path='/userprofile' element={<UserProfile />} />
+				<Route exact path='/create-post' element={<CreatePost />} />
+				<Route exact path='/:id' element={<Blog />} />
 			</Routes>
 		</BrowserRouter>
 	);
