@@ -27,7 +27,6 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/verify')
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -50,7 +49,6 @@ const Login = () => {
             setErrorMessage('User is not verified!');
             console.log('result');
           } else {
-            
             setError(false);
             setErrorMessage('');
             LogIn();

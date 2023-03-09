@@ -1,8 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import HomeContent from '../home-components/home-content'
 import Navbar from '../home-components/navbar'
 
 const Home = () => {
+
+	let navigate = useNavigate();
+
+ let userNav = () => {
+	navigate('/userprofile')
+ }
 
 	return (
 		<>
@@ -12,6 +19,8 @@ const Home = () => {
 				}
 
 				<HomeContent />
+
+				<button onClick={userNav}>user profile</button>
 
 			</div>
 		</>

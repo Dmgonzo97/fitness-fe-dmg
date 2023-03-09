@@ -59,3 +59,19 @@
 	}
 
 }
+
+.user-content {
+	display: grid;
+	grid-template-columns: 1fr 0.5fr;
+	gap: 50px;
+	padding: 25px;
+
+	.blog-container {
+		@include content-box();
+	}
+
+	.user-container {
+		@include content-box();
+	}
+
+}
