@@ -8,7 +8,7 @@ const Home = () => {
 	let navigate = useNavigate();
 
  let userNav = () => {
-	navigate('/userprofile')
+	navigate('/userprofile/:id')
  }
 
 	return (

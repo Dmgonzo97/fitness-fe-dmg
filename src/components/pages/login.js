@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setLogInStatus } from '../../slices/authSlice';
 import Navbar from '../home-components/navbar'
+import { setUserDetails } from '../../slices/userSlice';
 
 const Login = () => {
 
@@ -21,15 +23,17 @@ const Login = () => {
     dispatch(setLogInStatus(true))
   };
 
+  const setUserInfo = (user) => {
+    dispatch(setUserDetails(user))
+  }
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/verify')
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const HandleVerify = () => {
     if (username === '' || password === '') {
       setError(true);
       setErrorMessage('Error: All fields must be filled in!')
@@ -57,6 +61,26 @@ const Login = () => {
         });
     }
   };
+
+  const handleUserDetails = () => {
+    fetch(`https://fitness-be-dmg.herokuapp.com/user/get/${username}`, {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' }
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      setUserInfo(result)
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    HandleVerify();
+
+    handleUserDetails();
+
+  }
 
   return (
     <>
@@ -90,11 +114,11 @@ const Login = () => {
             </button>
 
             <h4
-            className="errorMessage"
-            style={{ visibility: error ? "visible" : "hidden" }}
-          >
-            {errorMessage}
-          </h4>
+              className="errorMessage"
+              style={{ visibility: error ? "visible" : "hidden" }}
+            >
+              {errorMessage}
+            </h4>
           </form>
         </div>
       </div>

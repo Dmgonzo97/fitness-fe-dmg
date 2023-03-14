@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
 import { setLogInStatus } from '../../slices/authSlice';
+import { useNavigate } from 'react-router';
 
 export default function NavbarLoggedIn() {
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/verify')
@@ -36,7 +38,7 @@ export default function NavbarLoggedIn() {
 
         <div className="app-title">
           <h1>
-            <a href="#">MyFitness Odyssey</a>
+            <a href="/">MyFitness Odyssey</a>
           </h1>
         </div>
       </div>
