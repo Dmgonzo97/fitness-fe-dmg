@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setLogInStatus } from '../../slices/authSlice';
 import Navbar from '../home-components/navbar'
@@ -51,7 +50,6 @@ const Login = () => {
           if (result === 'User is not verified!') {
             setError(true);
             setErrorMessage('User is not verified!');
-            console.log('result');
           } else {
             setError(false);
             setErrorMessage('');
