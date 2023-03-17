@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../home-components/navbar'
+import EditMode from '../edit-mode'
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLogInStatus } from '../../slices/authSlice';
@@ -11,6 +12,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [blogItems, setBlogItem] = useState([])
+  const [editMode, setEditMode] = useState(false)
 
   const LogOut = () => {
     dispatch(setLogInStatus(false))
@@ -36,6 +38,7 @@ const UserProfile = () => {
     getBlogItems()
   }, [])
 
+
   const displayBlogs = blogItems.map(blog => {
     return (
       <>
@@ -51,39 +54,43 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className="navbar">
-        <Navbar />
-      </div>
+      {
+        editMode
+          ?
+          (
+            <EditMode />
+          )
+          :
+          (
+            <>
+              <div className="navbar">
+                <Navbar />
+              </div>
 
-      <div className="user-content">
-        <div className="blog-container">
-          <div>{displayBlogs}</div>
-        </div>
+              <div className="user-content">
+                <div className="blog-container">
+                  <div>{displayBlogs}</div>
+                </div>
 
-        <div className="user-container">
-          <div className="name">
-            <h3>Username:</h3>
-            <h5>{User.username}</h5>
-          </div>
+                <div className="user-container">
+                  <div className="name">
+                    <h3>Username:</h3>
+                    <h5>{User.username}</h5>
+                  </div>
 
-          <div className="delete-btn">
-            <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' />
-          </div>
+                  <div className="EditMode-btn">
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' />
+                  </div>
 
-          <div className="logOut-btn">
-            <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' />
-          </div>
+                  <div className="logOut-btn">
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' />
+                  </div>
 
-          <div className="edit-username">
-            <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' />
-          </div>
-
-          <div className="edit-pw">
-            <FontAwesomeIcon className='fa' icon='fa-solid fa-unlock' />
-          </div>
-
-        </div>
-      </div>
+                </div>
+              </div>
+            </>
+          )
+      }
     </>
   )
 }

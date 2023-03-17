@@ -12,15 +12,13 @@ import Blog from './components/pages/blog';
 
 export default function App() {
 
-	const [blog_user_id, setUserId] = useState('');
-
 	Icons();
 
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route exact path='/' element={<Home />} />
-				<Route exact path='/login' element={<Login setUserId={setUserId} />} />
+				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/signup' element={<Signup />} />
 				<Route exact path='/userprofile/:id' element={<UserProfile />} />
 				<Route exact path='/create-post' element={<CreatePost />} />
