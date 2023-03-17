@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLogInStatus } from '../../slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { setEditModeStatus } from '../../slices/editSlice'
 
 const UserProfile = () => {
 
@@ -12,7 +13,12 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [blogItems, setBlogItem] = useState([])
-  const [editMode, setEditMode] = useState(false)
+
+  const editMode = useSelector((state) => state.edit.editMode)
+
+  const EditOnBtn = () => {
+    dispatch(setEditModeStatus(true))
+  }
 
   const LogOut = () => {
     dispatch(setLogInStatus(false))
@@ -21,6 +27,7 @@ const UserProfile = () => {
   console.log(User);
   console.log(User.blogs);
   console.log(User.id);
+  console.log(User.blogs.blog_user_id);
 
   const getBlogItems = () => {
     fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`, {
@@ -79,7 +86,7 @@ const UserProfile = () => {
                   </div>
 
                   <div className="EditMode-btn">
-                    <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' />
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' onClick={EditOnBtn} />
                   </div>
 
                   <div className="logOut-btn">

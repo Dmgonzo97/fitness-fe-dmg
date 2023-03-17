@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice'
 import userReducer from './slices/userSlice'
+import editReducer from './slices/editSlice'
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    user: userReducer
+    user: userReducer,
+    edit: editReducer,
   },
 })
