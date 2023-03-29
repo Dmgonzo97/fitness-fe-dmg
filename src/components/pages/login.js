@@ -36,7 +36,8 @@ const Login = () => {
     if (username === '' || password === '') {
       setError(true);
       setErrorMessage('Error: All fields must be filled in!')
-    } else {
+    }
+    else {
       fetch(APIurl, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -47,9 +48,9 @@ const Login = () => {
       })
         .then((response) => response.json())
         .then((result) => {
-          if (result === 'User is not verified!') {
+          if (result === 'User is not verified') {
             setError(true);
-            setErrorMessage('User is not verified!');
+            setErrorMessage('Error: User is not verified');
           } else {
             setError(false);
             setErrorMessage('');
@@ -65,10 +66,10 @@ const Login = () => {
       method: 'GET',
       headers: { 'content-type': 'application/json' }
     })
-    .then((response) => response.json())
-    .then((result) => {
-      setUserInfo(result)
-    })
+      .then((response) => response.json())
+      .then((result) => {
+        setUserInfo(result)
+      })
   }
 
   const handleSubmit = (e) => {

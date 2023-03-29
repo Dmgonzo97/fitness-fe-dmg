@@ -1,27 +1,27 @@
 import React, { useState } from 'react'
 import Navbar from './home-components/navbar'
 import { setEditModeStatus } from '../slices/editSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const EditMode = () => {
 
   const dispatch = useDispatch();
 
+  const User = useSelector((state) => state.user)
+
   const [username, setUsername] = useState('');
-  const [ConfirmUsername, setconfirmUsername] = useState('')
+  const [ConfirmUsername, setConfirmUsername] = useState('')
   const [password, setPassword] = useState('');
   const [ConfirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [APIUrl] = useState()
+  const [APIUrl] = useState(`https://fitness-be-dmg.herokuapp.com/user/update/${User.id}`)
 
   const EditOffBtn = () => {
     dispatch(setEditModeStatus(false))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleUpdate = (e) => {
     if (username === '' || ConfirmUsername === '') {
       setError(true)
       setErrorMessage('Error: All Fields must be filled out!')
@@ -35,8 +35,32 @@ export const EditMode = () => {
       setError(true)
       setErrorMessage('Error: Passwords must MATCH')
     } else {
-      fetch('https://fitness-be-dmg.herokuapp.com/user/update')
+      fetch(APIUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          new_username: username,
+          new_password: password
+        }),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result === 'User not found') {
+            setError(true);
+            setErrorMessage('User not found')
+          } else {
+            setError(false);
+            setErrorMessage('');
+
+          }
+        })
     }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    handleUpdate();
   }
 
   return (
@@ -47,13 +71,13 @@ export const EditMode = () => {
 
       <div className="update-user-container">
         <div className="user-form">
-          <form className='formbox'>
+          <form className='formbox' onSubmit={e => handleSubmit(e)}>
             <input
               type="text"
               placeholder='Username'
               value={username}
               name='username'
-
+              onChange={e => setUsername(e.target.value)}
             />
 
             <input
@@ -61,7 +85,7 @@ export const EditMode = () => {
               placeholder='Confirm Username'
               value={ConfirmUsername}
               name='confirm username'
-
+              onChange={e => setConfirmUsername(e.target.value)}
             />
 
             <input
@@ -69,7 +93,7 @@ export const EditMode = () => {
               placeholder='Password'
               value={password}
               name='password'
-
+              onChange={e => setPassword(e.target.value)}
             />
 
             <input
@@ -77,10 +101,10 @@ export const EditMode = () => {
               placeholder='Confirm Password'
               value={ConfirmPassword}
               name='confirm username'
-
+              onChange={e => setConfirmPassword(e.target.value)}
             />
 
-            <button className='btn' >
+            <button className='btn'>
               Update User!
             </button>
           </form>

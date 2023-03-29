@@ -25,9 +25,6 @@ const UserProfile = () => {
   }
 
   console.log(User);
-  console.log(User.blogs);
-  console.log(User.id);
-  console.log(User.blogs.blog_user_id);
 
   const getBlogItems = () => {
     fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`, {
