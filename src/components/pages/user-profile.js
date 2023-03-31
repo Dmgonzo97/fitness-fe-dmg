@@ -24,6 +24,10 @@ const UserProfile = () => {
     dispatch(setLogInStatus(false))
   }
 
+  const ConfirmDelete = () => {
+    
+  }
+
   console.log(User);
 
   const getBlogItems = () => {
@@ -82,12 +86,15 @@ const UserProfile = () => {
                     <h5>{User.username}</h5>
                   </div>
 
-                  <div className="EditMode-btn">
+                  <div className="EditMode-container">
+                    
                     <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' onClick={EditOnBtn} />
                   </div>
 
-                  <div className="logOut-btn">
-                    <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' />
+                  <div className="logOut-container">
+                    
+
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' onClick={ConfirmDelete} />
                   </div>
 
                 </div>
