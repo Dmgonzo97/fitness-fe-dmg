@@ -21,7 +21,7 @@ export const EditMode = () => {
     dispatch(setEditModeStatus(false))
   }
 
-  const handleUpdate = (e) => {
+  const handleUpdate = () => {
     if (username === '' || ConfirmUsername === '') {
       setError(true)
       setErrorMessage('Error: All Fields must be filled out!')
@@ -49,9 +49,8 @@ export const EditMode = () => {
             setError(true);
             setErrorMessage('User not found')
           } else {
-            setError(false);
-            setErrorMessage('');
-
+            setError(true);
+            setErrorMessage('Success! User Edited!');
           }
         })
     }
@@ -107,6 +106,13 @@ export const EditMode = () => {
             <button className='btn'>
               Update User!
             </button>
+
+            <h4
+              className="errorMessage"
+              style={{ visibility: error ? "visible" : "hidden" }}
+            >
+              {errorMessage}
+            </h4>
           </form>
         </div>
       </div>
