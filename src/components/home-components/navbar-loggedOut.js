@@ -15,9 +15,9 @@ function NavBarLoggedOut() {
     navigate('/login')
   };
 
-  let UserRoute = () => {
-    navigate('/userprofile')
-  };
+  // let UserRoute = () => {
+  //   navigate('/userprofile')
+  // };
 
   let HomeRoute = () => {
     navigate('/')

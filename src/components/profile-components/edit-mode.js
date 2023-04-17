@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from './home-components/navbar'
-import { setEditModeStatus } from '../slices/editSlice'
+import Navbar from '../home-components/navbar'
+import { setEditModeStatus } from '../../slices/editSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const EditMode = () => {
