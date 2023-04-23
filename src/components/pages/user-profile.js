@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../home-components/navbar'
 import EditMode from '../profile-components/edit-mode'
+import parse from 'html-react-parser';
+import he from 'he';
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLogInStatus } from '../../slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { setEditModeStatus } from '../../slices/editSlice'
+
 
 const UserProfile = () => {
 
@@ -22,7 +25,6 @@ const UserProfile = () => {
 
   const CreatePostRoute = (e) => {
     e.preventDefault();
-
     navigate('/create-post');
   }
 
@@ -34,30 +36,15 @@ const UserProfile = () => {
     dispatch(setLogInStatus(false));
   };
 
-  console.log(User);
-
-  const getBlogItems = () => {
-    fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`, {
-      method: 'GET',
-      headers: { 'content-type': 'application/json' }
-    })
-      .then((response) => response.json())
-      .then((results) => {
-        setBlogItem(results)
-        console.log(blogItems);
-      })
-  };
-
   const DeleteUser = (e) => {
     e.preventDefault();
-    
+
     fetch(`https://fitness-be-dmg.herokuapp.com/user/delete/${User.id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' }
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         console.log('User Deleted!');
         LogOut();
         HomeRoute();
@@ -65,20 +52,31 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
+    const getBlogItems = async () => {
+      try {
+        const response = await fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`);
+        const data = await response.json();
+        setBlogItem(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     getBlogItems();
-  }, [])
+  }, []);
 
+  console.log(blogItems);
 
-  const displayBlogs = blogItems.map(blog => {
+  const displayBlogs = blogItems.map((blog, i) => {
     return (
-      <>
+      <div className="blog-items" key={i}>
         <div className="blog-title">
           <h3>{blog.blog_name}</h3>
         </div>
         <div className="blog-content">
-          <p>{blog.blog_text}</p>
+          {parse(he.decode(blog.blog_text))}
         </div>
-      </>
+      </div>
     )
   })
 
@@ -128,7 +126,7 @@ const UserProfile = () => {
 
 
                     <div className="icon">
-                      <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' onClick={DeleteUser}/>
+                      <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' onClick={DeleteUser} />
                     </div>
 
                   </div>
