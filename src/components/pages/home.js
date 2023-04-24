@@ -5,11 +5,11 @@ import Navbar from '../home-components/navbar'
 
 const Home = () => {
 
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
- let userNav = () => {
-	navigate('/userprofile/:id')
- }
+	const userNav = () => {
+		navigate('/userprofile/:id')
+	}
 
 	return (
 		<>

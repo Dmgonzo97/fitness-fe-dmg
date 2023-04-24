@@ -10,8 +10,6 @@ export default function NavbarLoggedIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/verify')
-
   const HomeRoute = (e) => {
     e.preventDefault();
     navigate('/');
@@ -21,19 +19,9 @@ export default function NavbarLoggedIn() {
     dispatch(setLogInStatus(false))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch(APIurl, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' }
-    })
-      .then((response) => response.json())
-
-    LogOut();
+  const userNav = () => {
+    navigate('/userprofile/:id')
   }
-
-
 
   return (
     <div className="navbar">
@@ -53,12 +41,20 @@ export default function NavbarLoggedIn() {
       <div className="right-nav">
         <div className="login-icon">
           <h4>User Profile</h4>
-          <FontAwesomeIcon className='fa' icon='fa-solid fa-user' onClick={handleSubmit} />
+          <FontAwesomeIcon
+            className='fa'
+            icon='fa-solid fa-user'
+            onClick={userNav}
+          />
         </div>
 
         <div className="logOut-icon">
           <h4>Log Out</h4>
-          <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' />
+          <FontAwesomeIcon
+            className='fa'
+            icon='fa-solid fa-arrow-right-from-bracket'
+            onClick={LogOut}
+          />
         </div>
       </div>
 
