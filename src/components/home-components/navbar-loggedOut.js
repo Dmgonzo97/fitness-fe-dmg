@@ -33,7 +33,7 @@ function NavBarLoggedOut() {
 
         <div className="app-title">
           <h1>
-            <a href="/" onClick={HomeRoute}>MyFitness Odyssey</a>
+            <a onClick={HomeRoute}>MyFitness Odyssey</a>
           </h1>
         </div>
       </div>
