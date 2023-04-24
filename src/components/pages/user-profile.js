@@ -52,6 +52,7 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
+    
     const getBlogItems = async () => {
       try {
         const response = await fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`);

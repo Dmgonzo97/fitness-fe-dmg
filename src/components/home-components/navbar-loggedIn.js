@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
 import { setLogInStatus } from '../../slices/authSlice';
 import { useNavigate } from 'react-router';
-import Home from '../pages/home';
 
 export default function NavbarLoggedIn() {
 
@@ -29,8 +28,8 @@ export default function NavbarLoggedIn() {
       method: 'POST',
       headers: { 'content-type': 'application/json' }
     })
-    .then((response) => response.json())
-    
+      .then((response) => response.json())
+
     LogOut();
   }
 
@@ -45,15 +44,21 @@ export default function NavbarLoggedIn() {
         </div>
 
         <div className="app-title">
-          <h1>
-            <a onClick={HomeRoute}>MyFitness Odyssey</a>
+          <h1 onClick={HomeRoute}>
+            MyFitness Odyssey
           </h1>
         </div>
       </div>
 
       <div className="right-nav">
         <div className="login-icon">
+          <h4>User Profile</h4>
           <FontAwesomeIcon className='fa' icon='fa-solid fa-user' onClick={handleSubmit} />
+        </div>
+
+        <div className="logOut-icon">
+          <h4>Log Out</h4>
+          <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' />
         </div>
       </div>
 

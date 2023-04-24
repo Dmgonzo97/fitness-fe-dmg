@@ -15,10 +15,6 @@ function NavBarLoggedOut() {
     navigate('/login')
   };
 
-  // let UserRoute = () => {
-  //   navigate('/userprofile')
-  // };
-
   let HomeRoute = () => {
     navigate('/')
   };
@@ -32,8 +28,8 @@ function NavBarLoggedOut() {
         </div>
 
         <div className="app-title">
-          <h1>
-            <a onClick={HomeRoute}>MyFitness Odyssey</a>
+          <h1 onClick={HomeRoute}>
+            MyFitness Odyssey
           </h1>
         </div>
       </div>
@@ -44,9 +40,6 @@ function NavBarLoggedOut() {
           <button className='btn' onClick={LoginRoute}>Login</button>
         </div>
 
-        <div className="login-icon">
-          <FontAwesomeIcon  className='fa' icon='fa-solid fa-user' />
-        </div>
       </div>
 
     </div>
