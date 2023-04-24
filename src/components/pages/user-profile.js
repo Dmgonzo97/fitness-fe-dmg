@@ -126,7 +126,7 @@ const UserProfile = () => {
 
 
                     <div className="icon">
-                      <FontAwesomeIcon className='fa' icon='fa-solid fa-arrow-right-from-bracket' onClick={DeleteUser} />
+                      <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' onClick={DeleteUser} />
                     </div>
 
                   </div>

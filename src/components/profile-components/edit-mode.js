@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Navbar from '../home-components/navbar'
 import { setEditModeStatus } from '../../slices/editSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { setUserDetails } from '../../slices/userSlice';
+
 
 export const EditMode = () => {
 
@@ -19,6 +21,10 @@ export const EditMode = () => {
 
   const EditOffBtn = () => {
     dispatch(setEditModeStatus(false))
+  }
+
+  const setUserInfo = (user) => {
+    dispatch(setUserDetails(user))
   }
 
   const handleUpdate = () => {
@@ -49,6 +55,7 @@ export const EditMode = () => {
             setError(true);
             setErrorMessage('User not found')
           } else {
+            setUserInfo(result)
             setError(true);
             setErrorMessage('Success! User Edited!');
           }
