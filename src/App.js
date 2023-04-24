@@ -20,9 +20,9 @@ export default function App() {
 				<Route exact path='/' element={<Home />} />
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/signup' element={<Signup />} />
-				<Route exact path='/userprofile/:id' element={<UserProfile />} />
+				<Route exact path='/userprofile' element={<UserProfile />} />
 				<Route exact path='/create-post' element={<CreatePost />} />
-				<Route exact path='/:id' element={<Blog />} />
+				<Route exact path='/blog' element={<Blog />} />
 			</Routes>
 		</BrowserRouter>
 	);

@@ -52,7 +52,7 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
-    
+
     const getBlogItems = async () => {
       try {
         const response = await fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`);
@@ -107,35 +107,18 @@ const UserProfile = () => {
                     <h5>{User.username}</h5>
                   </div>
 
-                  <div className="EditMode-container">
-
-                    <div className="title">
-                      <h3>Edit Profile</h3>
-                    </div>
-
-                    <div className="icon">
-                      <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' onClick={EditOnBtn} />
-                    </div>
-
+                  <div className="EditMode">
+                    <h3>Edit Profile</h3>
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-user-gear' onClick={EditOnBtn} />
                   </div>
 
-                  <div className="delete-container">
-
-                    <div className="title">
-                      <h3>Delete Profile</h3>
-                    </div>
-
-
-                    <div className="icon">
-                      <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' onClick={DeleteUser} />
-                    </div>
-
+                  <div className="delete">
+                    <h3>Delete Profile</h3>
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' onClick={DeleteUser} />
                   </div>
 
-                  <div className="create-post-container">
-
+                  <div className="create-post">
                     <button className='btn' onClick={CreatePostRoute}>Create Post!</button>
-
                   </div>
 
                 </div>

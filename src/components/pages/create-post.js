@@ -20,7 +20,7 @@ export default function CreatePost() {
 
   const ReturnRoute = (e) => {
     e.preventDefault();
-    navigate('/userprofile/:id');
+    navigate('/userprofile');
   }
 
   const handleSubmit = (e) => {
@@ -56,41 +56,42 @@ export default function CreatePost() {
       </div>
 
       <div className="creation-container">
+        <div className="post-form">
 
-        <form className='formbox' onSubmit={handleSubmit}>
+          <form className='formbox' onSubmit={handleSubmit}>
 
-          <input
-            type="text"
-            placeholder='Blog Title'
-            value={title}
-            name='blogTitle'
-            onChange={e => setTitle(e.target.value)}
-          />
+            <input
+              type="text"
+              placeholder='Blog Title'
+              value={title}
+              name='blogTitle'
+              onChange={e => setTitle(e.target.value)}
+            />
 
-          <Editor
-            apiKey='1o3abb2lzrxr3cucy2st89v24w6xuelauctwxok3jimy3ok2'
-            value={content}
-            onEditorChange={(content) => setContent(content)}
-            init={{
-              selector: 'textarea#default'
-            }}
-          />
+            <Editor
+              apiKey='1o3abb2lzrxr3cucy2st89v24w6xuelauctwxok3jimy3ok2'
+              value={content}
+              onEditorChange={(content) => setContent(content)}
+              init={{
+                selector: 'textarea#dark'
+              }}
+            />
 
-          <button className='create-post-btn' type='submit'>
-            Create Post!
-          </button>
+            <button className='create-post-btn' type='submit'>
+              Create Post!
+            </button>
 
-        </form>
+            <h4
+              className="errorMessage"
+              style={{ visibility: error ? "visible" : "hidden" }}
+            >
+              {errorMessage}
+            </h4>
 
-        <h4
-          className="errorMessage"
-          style={{ visibility: error ? "visible" : "hidden" }}
-        >
-          {errorMessage}
-        </h4>
+            <button className='create-post-btn' onClick={ReturnRoute}>Return</button>
+          </form>
 
-        <button onClick={ReturnRoute}>Return</button>
-
+        </div>
       </div>
     </>
   )

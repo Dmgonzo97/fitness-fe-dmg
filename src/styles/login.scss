@@ -1,0 +1,22 @@
+.login-container {
+  @include content();
+  padding: 100px 400px;
+
+  .login-form {
+    @include content-box();
+
+    form {
+      @include formbox();
+
+      @include form-inputs();
+
+      h4 {
+        color: $warning;
+      }
+
+      button {
+        @include btn();
+      }
+    }
+  }
+}

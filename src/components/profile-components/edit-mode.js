@@ -114,6 +114,8 @@ export const EditMode = () => {
               Update User!
             </button>
 
+            <button onClick={EditOffBtn}>Return</button>
+
             <h4
               className="errorMessage"
               style={{ visibility: error ? "visible" : "hidden" }}
@@ -124,9 +126,7 @@ export const EditMode = () => {
         </div>
       </div>
 
-      <div className="editMode-btn">
-        <button onClick={EditOffBtn}>Return</button>
-      </div>
+
     </>
   )
 }

@@ -1,0 +1,50 @@
+.user-content {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 50px;
+  padding: 25px;
+
+  .blog-container {
+
+    .blog-items {
+      @include content-box();
+    }
+  }
+
+  .user-container {
+    @include content-box();
+
+    .name {
+      @include user-details();
+
+      h5 {
+        color: $offwhite;
+      }
+    }
+
+    .EditMode {
+      @include user-details();
+
+      .fa {
+        @include FAbtn();
+      }
+    }
+
+    .delete {
+      @include user-details();
+
+      .fa {
+        @include FAbtn();
+      }
+    }
+
+    .create-post {
+      @include user-details();
+      
+      button {
+        @include btn();
+      }
+    }
+  }
+
+}

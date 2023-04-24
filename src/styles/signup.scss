@@ -1,0 +1,23 @@
+.signup-container {
+  @include content();
+  padding: 100px 400px;
+  
+  .signup-form {
+    @include content-box();
+    
+    form {
+      
+      @include formbox();
+
+      @include form-inputs();
+
+      button {
+        @include btn();
+      }
+
+      h4 {
+        color: $warning;
+      }
+    }
+  }
+}

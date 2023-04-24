@@ -11,7 +11,7 @@ export default function Signup() {
   const [ConfirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [APIurl, ] = useState('https://fitness-be-dmg.herokuapp.com/user/add')
+  const [APIurl,] = useState('https://fitness-be-dmg.herokuapp.com/user/add')
 
 
   let LoginRoute = () => {
@@ -93,14 +93,14 @@ export default function Signup() {
               Wrong place? Login Here!
             </button>
 
-          </form>
+            <h4
+              className="errorMessage"
+              style={{ visibility: error ? "visible" : "hidden" }}
+            >
+              {errorMessage}
+            </h4>
 
-          <h4
-            className="errorMessage"
-            style={{ visibility: error ? "visible" : "hidden" }}
-          >
-            {errorMessage}
-          </h4>
+          </form>
         </div>
       </div>
     </>

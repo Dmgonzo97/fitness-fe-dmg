@@ -1,0 +1,23 @@
+.creation-container {
+  @include content();
+  padding: 100px 400px;
+
+  .post-form {
+    @include content-box();
+    
+    form {
+      @include formbox();
+
+      @include form-inputs();
+
+      .create-post-btn {
+        @include btn();
+      }
+
+      h4 {
+        color: $warning;
+      }
+
+    }
+  }
+}

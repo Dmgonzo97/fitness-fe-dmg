@@ -4,47 +4,6 @@
 	align-items: center;
 }
 
-.navbar {
-	@include navbar();
-
-	.left-nav {
-		@include nav-directions();
-		padding-left: 100px;
-
-		.app-title {
-			a {
-				text-decoration: none;
-				color: black;
-			}
-		}
-
-		.logo-img {
-			img {
-				width: 80px;
-				height: 80px;
-			}
-		}
-	}
-
-	.right-nav {
-		@include nav-directions();
-		padding-right: 100px;
-
-		.btn {
-			@include btn();
-		}
-
-		.login-icon {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-
-			.fa {
-				@include FAbtn();
-			}
-		}
-	}
-}
 
 
 .content {
@@ -56,22 +15,6 @@
 		.mission-statement {
 			@include content-organization();
 		}
-	}
-
-}
-
-.user-content {
-	display: grid;
-	grid-template-columns: 1fr 0.5fr;
-	gap: 50px;
-	padding: 25px;
-
-	.blog-container {
-		@include content-box();
-	}
-
-	.user-container {
-		@include content-box();
 	}
 
 }

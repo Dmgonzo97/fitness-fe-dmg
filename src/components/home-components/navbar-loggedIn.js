@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Mfologo from '../images/MFO-Logo.png';
 import { setLogInStatus } from '../../slices/authSlice';
+import { setEditModeStatus } from '../../slices/editSlice'
 import { useNavigate } from 'react-router';
 
 export default function NavbarLoggedIn() {
@@ -10,8 +11,7 @@ export default function NavbarLoggedIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const HomeRoute = (e) => {
-    e.preventDefault();
+  const HomeRoute = () => {
     navigate('/');
   }
 
@@ -19,8 +19,21 @@ export default function NavbarLoggedIn() {
     dispatch(setLogInStatus(false))
   }
 
+  const EditOffBtn = () => {
+    dispatch(setEditModeStatus(false))
+  }
+
+  const handleLogout = (e) => {
+    LogOut()
+    EditOffBtn()
+
+    e.preventDefault();
+
+    HomeRoute();
+  }
+
   const userNav = () => {
-    navigate('/userprofile/:id')
+    navigate('/userprofile')
   }
 
   return (
@@ -53,7 +66,7 @@ export default function NavbarLoggedIn() {
           <FontAwesomeIcon
             className='fa'
             icon='fa-solid fa-arrow-right-from-bracket'
-            onClick={LogOut}
+            onClick={handleLogout}
           />
         </div>
       </div>
