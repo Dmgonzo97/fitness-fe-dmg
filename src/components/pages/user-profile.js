@@ -64,7 +64,7 @@ const UserProfile = () => {
     };
 
     getBlogItems();
-  }, []);
+  }, [User.id]);
 
   console.log(blogItems);
 
