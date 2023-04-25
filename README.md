@@ -1,3 +1,14 @@
+# My Fitness odyssey
+> Capstone project of the beginning stages of a premier fitness blog
+  this is the front end portion to my capstone project utilizing React.js, SCSS, HTML, Javascript, and Python for my PostgresSQL database
+
+  This application is to help bring people into the world of fitness by helping them track and make goals, through the use of the blog feature!
+
+  Fully featuring CRUD functionality, JWT, React Redux, Hooks. I was able to learn alot and fully expanding my understanding around development!
+
+> Check out the backend portion of this project to get an explaintion of all routes!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
