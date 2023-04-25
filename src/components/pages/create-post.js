@@ -73,7 +73,7 @@ export default function CreatePost() {
               value={content}
               onEditorChange={(content) => setContent(content)}
               init={{
-                selector: 'textarea#dark'
+                selector: 'textarea#default'
               }}
             />
 

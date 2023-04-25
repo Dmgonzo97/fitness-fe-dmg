@@ -3,7 +3,7 @@
 
 	.left-nav {
 		@include nav-directions();
-		padding-left: 100px;
+		padding-left: 50px;
 
 		.app-title {
 			a {
@@ -22,7 +22,7 @@
 
 	.right-nav {
 		@include nav-directions();
-		padding-right: 100px;
+		padding-right: 50px;
     gap: 30px;
 
 		.btn {
@@ -37,6 +37,7 @@
 			.fa {
 				@include FAbtn();
 			}
+
  
 		}
 

@@ -1,0 +1,94 @@
+@media screen and (max-width: 600px) {
+
+  // nav section
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .left-nav {
+    display: flex;
+  }
+
+  .navbar .right-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // signup section
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+  .signup-container .signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px !important;
+  }
+
+  .signup-container .signup-form .formbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+  }
+
+  // login section
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+  .login-container .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px !important;
+  }
+
+  .login-container .login-form .formbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+  }
+
+  // user-profile section
+  .user-content {
+    display: flex !important;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+  // edit-mode section
+  .update-user-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+  // create-post section
+  .creation-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+  .creation-container .post-form .formbox .tox .tox-editor-container .tox-editor-header .tox-toolbar  {
+    display: flex !important;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0px 0px !important;
+  }
+
+}
