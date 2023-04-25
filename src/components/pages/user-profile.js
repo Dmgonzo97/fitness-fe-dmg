@@ -66,8 +66,6 @@ const UserProfile = () => {
     getBlogItems();
   }, [User.id]);
 
-  console.log(blogItems);
-
   const displayBlogs = blogItems.map((blog, i) => {
     return (
       <div className="blog-items" key={i}>

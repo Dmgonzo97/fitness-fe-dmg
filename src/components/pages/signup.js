@@ -35,7 +35,6 @@ export default function Signup() {
       })
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
           if (result === 'Error: Username Already Exist') {
             setError(true);
             setErrorMessage('Error: Username Already Exist');

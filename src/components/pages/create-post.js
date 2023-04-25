@@ -42,7 +42,6 @@ export default function CreatePost() {
       })
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
           setError(true);
           setErrorMessage('Blog created!');
         });
