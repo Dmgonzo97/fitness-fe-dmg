@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import he from 'he';
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLogInStatus } from '../../slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { setEditModeStatus } from '../../slices/editSlice'
 
