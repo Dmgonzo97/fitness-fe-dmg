@@ -8,6 +8,7 @@ import Signup from './components/pages/signup';
 import UserProfile from './components/pages/user-profile';
 import CreatePost from './components/pages/create-post';
 import Blog from './components/pages/blog';
+import DelConfirm from './components/pages/delete-confirm';
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
 				<Route exact path='/userprofile' element={<UserProfile />} />
 				<Route exact path='/create-post' element={<CreatePost />} />
 				<Route exact path='/blog' element={<Blog />} />
+				<Route exact path='/delConfirm' element={<DelConfirm />} />
 			</Routes>
 		</BrowserRouter>
 	);

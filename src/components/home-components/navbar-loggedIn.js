@@ -32,7 +32,7 @@ export default function NavbarLoggedIn() {
     HomeRoute();
   }
 
-  const userNav = () => {
+  const UserRoute = () => {
     navigate('/userprofile')
   }
 
@@ -57,7 +57,7 @@ export default function NavbarLoggedIn() {
           <FontAwesomeIcon
             className='fa'
             icon='fa-solid fa-user'
-            onClick={userNav}
+            onClick={UserRoute}
           />
         </div>
 

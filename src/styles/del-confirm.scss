@@ -1,0 +1,17 @@
+.delete-container {
+  @include content();
+
+  .delete-box {
+    @include delete-box();
+
+    .title {
+      color: $warning;
+    }
+
+    .btns {
+      button {
+        @include btn();
+      }
+    }
+  }
+}

@@ -27,6 +27,16 @@
   padding: 25px 50px;
 }
 
+@mixin delete-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 0px none;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 25px 50px;
+}
+
 @mixin formbox {
   display: grid;
   grid-template-columns: 1fr;

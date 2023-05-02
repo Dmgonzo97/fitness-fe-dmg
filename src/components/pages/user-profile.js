@@ -19,40 +19,21 @@ const UserProfile = () => {
 
   const editMode = useSelector((state) => state.edit.editMode)
 
-  const HomeRoute = () => {
-    navigate('/');
-  }
-
   const CreatePostRoute = (e) => {
     e.preventDefault();
     navigate('/create-post');
+  }
+
+  const delConfirmRoute = (e) => {
+    e.preventDefault();
+    navigate('/delConfirm')
   }
 
   const EditOnBtn = () => {
     dispatch(setEditModeStatus(true));
   };
 
-  const LogOut = () => {
-    dispatch(setLogInStatus(false));
-  };
-
-  const DeleteUser = (e) => {
-    e.preventDefault();
-
-    fetch(`https://fitness-be-dmg.herokuapp.com/user/delete/${User.id}`, {
-      method: 'DELETE',
-      headers: { 'content-type': 'application/json' }
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log('User Deleted!');
-        LogOut();
-        HomeRoute();
-      })
-  };
-
   useEffect(() => {
-
     const getBlogItems = async () => {
       try {
         const response = await fetch(`https://fitness-be-dmg.herokuapp.com/blog/get/${User.id}`);
@@ -112,7 +93,7 @@ const UserProfile = () => {
 
                   <div className="delete">
                     <h3>Delete Profile</h3>
-                    <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' onClick={DeleteUser} />
+                    <FontAwesomeIcon className='fa' icon='fa-solid fa-delete-left' onClick={delConfirmRoute} />
                   </div>
 
                   <div className="create-post">
