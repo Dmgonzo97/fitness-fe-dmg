@@ -102,7 +102,7 @@ const UserProfile = () => {
                 <div className="user-container">
                   <div className="name">
                     <h3>Username:</h3>
-                    <h5>{User.username}</h5>
+                    <h4>{User.username}</h4>
                   </div>
 
                   <div className="EditMode">

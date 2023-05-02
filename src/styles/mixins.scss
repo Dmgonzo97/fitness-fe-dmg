@@ -3,7 +3,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  border-bottom: 1px solid black;
+  border-bottom: 0px none;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }
 
 @mixin nav-directions {
@@ -19,8 +21,9 @@
 }
 
 @mixin content-box {
+  border-bottom: 0px none;
   box-sizing: border-box;
-  border: 1px solid black;
+  background-color: #ffffff;
   padding: 25px 50px;
 }
 
@@ -81,7 +84,7 @@
   font-size: 1em;
   font-weight: 500;
   border: 1px solid transparent;
-  background-color: $DarkSlateGrey;
+  background-color: $peacefulBlue;
   color: whitesmoke;
   border-radius: 10px;
 }
@@ -94,7 +97,7 @@
   height: 20px;
   font-size: 1em;
   font-weight: 500;
+  color: $charcoal;
   border: 1px solid transparent;
-  color: $offwhite;
   border-radius: 10px;
 }

@@ -17,8 +17,8 @@
     .name {
       @include user-details();
 
-      h5 {
-        color: $offwhite;
+      h4 {
+        color: $charcoal
       }
     }
 
